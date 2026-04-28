@@ -981,7 +981,11 @@ async function signUp() {
   btn.disabled=true; btn.textContent='CREATING ACCOUNT...';
   const { data, error } = await sb.auth.signUp({ email, password: pass, options:{ data:{ full_name: first+' '+last } } });
   if (error) {
-    err.textContent = error.message;
+    if (error.status === 429) {
+      err.textContent = 'Too many attempts — please wait a few minutes or use a different email.';
+    } else {
+      err.textContent = error.message;
+    }
     err.style.display='block';
     btn.disabled=false; btn.textContent='CREATE FREE ACCOUNT';
   } else {
@@ -2375,11 +2379,4 @@ function sendCrossUserNotif(title, body) {
 async function enableNotifications() {
   if (!('Notification' in window)) { alert('Notifications not supported in this browser.'); return; }
   const perm = await Notification.requestPermission();
-  if (perm === 'granted') {
-    document.getElementById('notif-btn').style.display = 'none';
-    toast('NOTIFICATIONS ENABLED');
-  }
-}
-</script>
-</body>
-</html>
+  if (per
