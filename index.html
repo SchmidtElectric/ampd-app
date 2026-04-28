@@ -943,13 +943,30 @@ function switchTab(tab) {
 // ═══════════════════════════════════════
 const SUPA_URL = 'https://ceclacqfvoudpdmhwoxh.supabase.co';
 const SUPA_KEY = 'sb_publishable_9KH0Ne1QHsFnfMf0WqA8ag_GQ61X5jX';
-const { createClient } = supabase;
-const sb = createClient(SUPA_URL, SUPA_KEY);
 
+let sb;
 let currentUser = null;
 let currentCompany = null;
 let currentCompanyId = null;
 let selectedRole = 'owner_office';
+
+function initSupabase() {
+  if (typeof supabase === 'undefined') {
+    setTimeout(initSupabase, 100);
+    return;
+  }
+  const { createClient } = supabase;
+  sb = createClient(SUPA_URL, SUPA_KEY);
+  // Check existing session
+  sb.auth.getSession().then(({ data: { session } }) => {
+    if (session) bootApp();
+  });
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  }
+}
+
+window.addEventListener('load', initSupabase);
 
 // ── SIGN IN ──
 async function signIn() {
@@ -1003,15 +1020,6 @@ async function signOut() {
 }
 
 document.getElementById('login-pass').addEventListener('keydown', e => { if(e.key==='Enter') signIn(); });
-
-// Check existing session on load
-sb.auth.getSession().then(({ data: { session } }) => {
-  if (session) bootApp();
-});
-
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(()=>{});
-}
 
 // ── ONBOARDING ──
 function selectRole(role, el) {
@@ -2376,7 +2384,4 @@ function sendCrossUserNotif(title, body) {
   showBrowserNotif(title, body);
 }
 
-async function enableNotifications() {
-  if (!('Notification' in window)) { alert('Notifications not supported in this browser.'); return; }
-  const perm = await Notification.requestPermission();
-  if (per
+async function enableNotif
