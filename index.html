@@ -255,35 +255,14 @@ option{background:var(--white);}
         <div class="form-group"><label class="form-label">State</label><input class="form-input" id="ob-state" placeholder="IN" maxlength="2"></div>
         <div class="form-group"><label class="form-label">License # (optional)</label><input class="form-input" id="ob-license" placeholder="EC-000000"></div>
       </div>
-      <button class="btn-primary" onclick="obStep1()" style="background:var(--yellow-dark);">NEXT →</button>
+      <button class="btn-primary" onclick="obStep1()" style="background:var(--yellow-dark);" id="ob-next-btn">CREATE MY ACCOUNT →</button>
+      <div id="ob-err" style="color:var(--red);font-size:13px;margin-top:10px;display:none;"></div>
     </div>
 
-    <!-- Step 2 -->
+    <!-- Step 2: Done -->
     <div id="ob-step-2" style="display:none;">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;color:var(--dark);margin-bottom:6px;">YOUR ROLE</div>
-      <div style="font-size:13px;color:var(--muted);margin-bottom:22px;">How will you primarily use AMPD?</div>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:22px;" id="role-options">
-        <div onclick="selectRole('owner_office',this)" style="padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all .15s;">
-          <div style="font-weight:700;font-size:14px;">Office / Admin</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:3px;">I manage bids, books, tickets, and the office</div>
-        </div>
-        <div onclick="selectRole('owner_field',this)" style="padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all .15s;">
-          <div style="font-weight:700;font-size:14px;">Owner — Field &amp; Office</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:3px;">I work jobs AND manage the business</div>
-        </div>
-        <div onclick="selectRole('field',this)" style="padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;cursor:pointer;transition:all .15s;">
-          <div style="font-weight:700;font-size:14px;">Field Electrician</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:3px;">I work jobs and log hours from the field</div>
-        </div>
-      </div>
-      <button class="btn-primary" onclick="obStep2()" style="background:var(--yellow-dark);">NEXT →</button>
-      <button onclick="document.getElementById('ob-step-2').style.display='none';document.getElementById('ob-step-1').style.display='block';document.getElementById('ob-dot-2').style.background='var(--border)';" style="width:100%;margin-top:8px;background:transparent;border:1.5px solid var(--border);color:var(--muted);padding:11px;border-radius:8px;font-weight:600;cursor:pointer;font-size:13px;">← BACK</button>
-    </div>
-
-    <!-- Step 3 -->
-    <div id="ob-step-3" style="display:none;">
       <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:2px;color:var(--dark);margin-bottom:6px;">YOU'RE ALL SET!</div>
-      <div style="font-size:13px;color:var(--muted);margin-bottom:22px;">Here's what to do first to get started.</div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:22px;">Your AMPD account is ready. Here's what to do first.</div>
       <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
         <div style="display:flex;align-items:center;gap:12px;padding:14px;background:var(--panel2);border-radius:10px;border:1px solid var(--border);">
           <div style="width:30px;height:30px;background:var(--yellow);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#000;flex-shrink:0;">1</div>
@@ -1041,40 +1020,63 @@ function selectRole(role, el) {
   el.style.background='#fffde6';
 }
 
-function obStep1() {
+async function obStep1() {
   const name = document.getElementById('ob-name').value.trim();
   if (!name) { alert('Please enter your company name.'); return; }
-  document.getElementById('ob-step-1').style.display='none';
-  document.getElementById('ob-step-2').style.display='block';
-  document.getElementById('ob-dot-2').style.background='var(--yellow-dark)';
-}
+  const btn = document.getElementById('ob-next-btn');
+  const err = document.getElementById('ob-err');
+  btn.disabled = true; btn.textContent = 'SETTING UP...';
+  err.style.display = 'none';
 
-async function obStep2() {
+  // Get current user
+  const { data: { user } } = await sb.auth.getUser();
+  currentUser = user;
+
+  // Create company
   const companyData = {
-    name: document.getElementById('ob-name').value.trim(),
+    name,
     phone: document.getElementById('ob-phone').value.trim(),
     city: document.getElementById('ob-city').value.trim(),
     state: document.getElementById('ob-state').value.trim(),
     license_number: document.getElementById('ob-license').value.trim(),
     plan: 'trial',
   };
-  const { data: company, error: cErr } = await sb.from('companies').insert(companyData).select().single();
-  if (cErr) { alert('Error creating company: '+cErr.message); return; }
-  currentCompany = company;
-  currentCompanyId = company.id;
+
+  const { error: cErr } = await sb.from('companies').insert(companyData);
+  if (cErr) {
+    err.textContent = 'Error: ' + cErr.message;
+    err.style.display = 'block';
+    btn.disabled = false; btn.textContent = 'CREATE MY ACCOUNT →';
+    return;
+  }
+
+  // Fetch the company we just created
+  const { data: companyRecord } = await sb.from('companies')
+    .select('*').eq('name', name).order('created_at', {ascending:false}).limit(1).single();
+
+  if (!companyRecord) {
+    err.textContent = 'Setup error — please try signing in directly.';
+    err.style.display = 'block';
+    btn.disabled = false; btn.textContent = 'CREATE MY ACCOUNT →';
+    return;
+  }
+
+  currentCompany = companyRecord;
+  currentCompanyId = companyRecord.id;
+
   // Create user profile
-  const { data: { user } } = await sb.auth.getUser();
-  currentUser = user;
   await sb.from('users').insert({
     id: user.id,
-    company_id: company.id,
+    company_id: companyRecord.id,
     full_name: user.user_metadata?.full_name || '',
-    role: selectedRole === 'field' ? 'user' : 'admin',
-    job_title: selectedRole
+    role: 'admin',
+    job_title: 'owner'
   });
-  document.getElementById('ob-step-2').style.display='none';
-  document.getElementById('ob-step-3').style.display='block';
-  document.getElementById('ob-dot-3').style.background='var(--yellow-dark)';
+
+  // Show done screen
+  document.getElementById('ob-step-1').style.display = 'none';
+  document.getElementById('ob-step-2').style.display = 'block';
+  document.getElementById('ob-dot-2').style.background = 'var(--yellow-dark)';
 }
 
 async function finishOnboarding() {
