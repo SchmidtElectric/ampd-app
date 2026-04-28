@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <title>AMPD — Field Management for Electricians</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg:#f0f2f5; --white:#ffffff; --dark:#1a1a2e;
@@ -26,7 +26,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;}
 ::-webkit-scrollbar{width:6px;height:6px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
@@ -43,20 +43,20 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min
 .login-sub{font-size:13px;color:var(--muted);margin-bottom:28px;}
 .form-group{margin-bottom:16px;}
 .form-label{font-size:12px;font-weight:600;color:var(--text);display:block;margin-bottom:6px;letter-spacing:0.3px;}
-.form-input{background:var(--panel2);border:1.5px solid var(--border2);color:var(--text);padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:15px;outline:none;transition:border-color .15s;width:100%;border-radius:8px;}
+.form-input{background:var(--panel2);border:1.5px solid var(--border2);color:var(--text);padding:12px 14px;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .15s;width:100%;border-radius:8px;}
 .form-input:focus{border-color:var(--yellow-dark);box-shadow:0 0 0 3px rgba(212,230,0,0.15);}
-.form-select{background:var(--panel2);border:1.5px solid var(--border2);color:var(--text);padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:15px;outline:none;transition:border-color .15s;width:100%;cursor:pointer;border-radius:8px;}
+.form-select{background:var(--panel2);border:1.5px solid var(--border2);color:var(--text);padding:12px 14px;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .15s;width:100%;cursor:pointer;border-radius:8px;}
 .form-select:focus{border-color:var(--yellow-dark);box-shadow:0 0 0 3px rgba(212,230,0,0.15);}
-.form-textarea{background:var(--panel2);border:1.5px solid var(--border2);color:var(--text);padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:15px;outline:none;transition:border-color .15s;width:100%;resize:vertical;min-height:80px;border-radius:8px;}
+.form-textarea{background:var(--panel2);border:1.5px solid var(--border2);color:var(--text);padding:12px 14px;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color .15s;width:100%;resize:vertical;min-height:80px;border-radius:8px;}
 .form-textarea:focus{border-color:var(--yellow-dark);box-shadow:0 0 0 3px rgba(212,230,0,0.15);}
 option{background:var(--white);}
-.btn-primary{background:var(--dark);color:#fff;border:none;padding:13px 22px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;letter-spacing:0.5px;cursor:pointer;transition:all .15s;width:100%;margin-top:8px;border-radius:8px;}
+.btn-primary{background:var(--dark);color:#fff;border:none;padding:13px 22px;font-family:'Inter',sans-serif;font-size:15px;font-weight:700;letter-spacing:0.5px;cursor:pointer;transition:all .15s;width:100%;margin-top:8px;border-radius:8px;}
 .btn-primary:hover{background:var(--yellow);color:var(--dark);transform:translateY(-1px);box-shadow:var(--shadow-md);}
 .btn-primary:disabled{opacity:.5;cursor:not-allowed;transform:none;}
 .btn-sm{width:auto;padding:8px 16px;font-size:13px;margin-top:0;}
-.btn-ghost{background:var(--white);color:var(--text);border:1.5px solid var(--border2);padding:8px 14px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.3px;cursor:pointer;transition:all .15s;border-radius:7px;}
+.btn-ghost{background:var(--white);color:var(--text);border:1.5px solid var(--border2);padding:8px 14px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.3px;cursor:pointer;transition:all .15s;border-radius:7px;}
 .btn-ghost:hover{border-color:var(--yellow-dark);background:var(--yellow-light);color:var(--dark);}
-.btn-danger{background:transparent;color:var(--red);border:1.5px solid rgba(239,68,68,.3);padding:6px 10px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;border-radius:6px;}
+.btn-danger{background:transparent;color:var(--red);border:1.5px solid rgba(239,68,68,.3);padding:6px 10px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;border-radius:6px;}
 .btn-danger:hover{background:rgba(239,68,68,.08);}
 .login-err{color:var(--red);font-size:13px;margin-top:10px;display:none;font-weight:500;}
 
@@ -68,7 +68,7 @@ option{background:var(--white);}
 .nav-name{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;color:#fff;}
 .nav-name span{color:var(--yellow);}
 .nav-tabs{display:flex;gap:0;}
-.nav-tab{padding:18px 16px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,0.6);transition:all .15s;border-bottom:3px solid transparent;letter-spacing:0.3px;}
+.nav-tab{padding:18px 16px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;cursor:pointer;border:none;background:transparent;color:rgba(255,255,255,0.6);transition:all .15s;border-bottom:3px solid transparent;letter-spacing:0.3px;}
 .nav-tab:hover{color:#fff;background:rgba(255,255,255,0.05);}
 .nav-tab.active{color:var(--yellow);border-bottom-color:var(--yellow);}
 .nav-right{display:flex;align-items:center;gap:12px;}
@@ -743,13 +743,13 @@ option{background:var(--white);}
       </div>
       <div id="job-photos-section" style="display:none;">
         <div style="border-top:1px solid var(--border);padding-top:16px;margin-top:4px;">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;margin-bottom:10px;">JOB PHOTOS <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;">(MAX 5)</span></div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;margin-bottom:10px;">JOB PHOTOS <span style="font-family:'Inter',sans-serif;font-size:10px;color:var(--muted);letter-spacing:1px;">(MAX 5)</span></div>
           <div id="job-photos-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px;"></div>
-          <label style="display:flex;align-items:center;justify-content:center;gap:8px;border:1px dashed var(--border2);padding:12px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;color:var(--muted2);transition:border-color .15s;" onmouseover="this.style.borderColor='var(--yellow)'" onmouseout="this.style.borderColor='var(--border2)'" id="photo-upload-label">
+          <label style="display:flex;align-items:center;justify-content:center;gap:8px;border:1px dashed var(--border2);padding:12px;cursor:pointer;font-family:'Inter',sans-serif;font-size:11px;color:var(--muted2);transition:border-color .15s;" onmouseover="this.style.borderColor='var(--yellow)'" onmouseout="this.style.borderColor='var(--border2)'" id="photo-upload-label">
             📷 TAP TO ADD PHOTO
             <input type="file" id="photo-file-input" accept="image/*" capture="environment" style="display:none;" onchange="uploadJobPhoto(this)">
           </label>
-          <div id="photo-upload-status" style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-top:6px;"></div>
+          <div id="photo-upload-status" style="font-family:'Inter',sans-serif;font-size:10px;color:var(--muted);margin-top:6px;"></div>
         </div>
       </div>
     </div>
@@ -949,6 +949,16 @@ option{background:var(--white);}
 </div>
 
 <script>
+// ── TAB SWITCH ──
+function switchTab(tab) {
+  document.getElementById('form-signin').style.display = tab==='signin'?'block':'none';
+  document.getElementById('form-signup').style.display = tab==='signup'?'block':'none';
+  document.getElementById('tab-signin').style.borderBottomColor = tab==='signin'?'var(--yellow-dark)':'transparent';
+  document.getElementById('tab-signup').style.borderBottomColor = tab==='signup'?'var(--yellow-dark)':'transparent';
+  document.getElementById('tab-signin').style.color = tab==='signin'?'var(--dark)':'var(--muted)';
+  document.getElementById('tab-signup').style.color = tab==='signup'?'var(--dark)':'var(--muted)';
+}
+
 // ═══════════════════════════════════════
 //  SUPABASE — AMPD
 // ═══════════════════════════════════════
@@ -961,16 +971,6 @@ let currentUser = null;
 let currentCompany = null;
 let currentCompanyId = null;
 let selectedRole = 'owner_office';
-
-// ── TAB SWITCH ──
-function switchTab(tab) {
-  document.getElementById('form-signin').style.display = tab==='signin'?'block':'none';
-  document.getElementById('form-signup').style.display = tab==='signup'?'block':'none';
-  document.getElementById('tab-signin').style.borderBottomColor = tab==='signin'?'var(--yellow-dark)':'transparent';
-  document.getElementById('tab-signup').style.borderBottomColor = tab==='signup'?'var(--yellow-dark)':'transparent';
-  document.getElementById('tab-signin').style.color = tab==='signin'?'var(--dark)':'var(--muted)';
-  document.getElementById('tab-signup').style.color = tab==='signup'?'var(--dark)':'var(--muted)';
-}
 
 // ── SIGN IN ──
 async function signIn() {
@@ -1170,14 +1170,6 @@ async function saveSettings() {
   document.getElementById('nav-company').textContent = data.name;
   showSaved(); toast('SETTINGS SAVED');
 }
-  // Handle PWA home screen shortcuts
-  const params = new URLSearchParams(window.location.search);
-  const shortcut = params.get('shortcut');
-  if (shortcut === 'ticket') { showPage('tickets'); setTimeout(() => openTicketModal(), 400); }
-  if (shortcut === 'job')    { showPage('jobs');    setTimeout(() => openJobModal(),    400); }
-  // Start realtime listener
-  setupRealtimeNotifications();
-}
 
 // ═══════════════════════════════════════
 //  HELPERS
@@ -1321,7 +1313,7 @@ function renderDashboard() {
       const cust = DATA.customers.find(c=>c.id===j.customer_id);
       const s = jobStats(j);
       return `<tr onclick="showPage('jobs')">
-        <td><div style="font-weight:600;font-size:13px;">${j.name}</div><div style="font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;">${j.type||''}</div></td>
+        <td><div style="font-weight:600;font-size:13px;">${j.name}</div><div style="font-size:10px;color:var(--muted);font-family:'Inter',sans-serif;">${j.type||''}</div></td>
         <td style="font-size:12px;color:var(--muted2);">${cust?cust.name:'—'}</td>
         <td style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--yellow);">${fmt(j.contract)}</td>
         <td>${marginBar(s.margin)}</td>
@@ -1335,7 +1327,7 @@ function renderDashboard() {
     return `<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #1a1a1a;">
       <div>
         <div style="font-weight:600;font-size:13px;">${e.title}</div>
-        <div style="font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;">${cust?cust.name:'—'} · ${e.date_sent||'—'}</div>
+        <div style="font-size:10px;color:var(--muted);font-family:'Inter',sans-serif;">${cust?cust.name:'—'} · ${e.date_sent||'—'}</div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--yellow);">${fmt(e.amount)}</div>
@@ -1360,8 +1352,8 @@ function renderCustomers() {
     const custJobs = DATA.jobs.filter(j=>j.customer_id===c.id);
     const totalContract = custJobs.reduce((s,j)=>s+Number(j.contract||0),0);
     return `<tr onclick="openCustDetail('${c.id}')" style="cursor:pointer;">
-      <td><div style="font-weight:600;color:var(--yellow);">${c.name}</div><div style="font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;">${c.contact||''}</div></td>
-      <td style="font-family:'DM Mono',monospace;font-size:11px;">${c.phone||'—'}</td>
+      <td><div style="font-weight:600;color:var(--yellow);">${c.name}</div><div style="font-size:10px;color:var(--muted);font-family:'Inter',sans-serif;">${c.contact||''}</div></td>
+      <td style="font-family:'Inter',sans-serif;font-size:11px;">${c.phone||'—'}</td>
       <td style="font-size:12px;color:var(--muted2);">${c.city||'—'}</td>
       <td><span style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--yellow);">${custJobs.length}</span></td>
       <td style="font-family:'Bebas Neue',sans-serif;font-size:18px;">${fmt(totalContract)}</td>
@@ -1387,9 +1379,9 @@ function openCustDetail(id) {
         <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;color:var(--yellow);">${c.name}</div>
         ${c.contact?`<div style="font-size:13px;color:var(--muted2);margin-top:2px;">${c.contact}</div>`:''}
         <div style="display:flex;gap:20px;margin-top:10px;flex-wrap:wrap;">
-          ${c.phone?`<div style="font-family:'DM Mono',monospace;font-size:11px;"><span style="color:var(--muted);">PHONE</span> <span>${c.phone}</span></div>`:''}
-          ${c.email?`<div style="font-family:'DM Mono',monospace;font-size:11px;"><span style="color:var(--muted);">EMAIL</span> <span>${c.email}</span></div>`:''}
-          ${c.city?`<div style="font-family:'DM Mono',monospace;font-size:11px;"><span style="color:var(--muted);">CITY</span> <span>${c.city}</span></div>`:''}
+          ${c.phone?`<div style="font-family:'Inter',sans-serif;font-size:11px;"><span style="color:var(--muted);">PHONE</span> <span>${c.phone}</span></div>`:''}
+          ${c.email?`<div style="font-family:'Inter',sans-serif;font-size:11px;"><span style="color:var(--muted);">EMAIL</span> <span>${c.email}</span></div>`:''}
+          ${c.city?`<div style="font-family:'Inter',sans-serif;font-size:11px;"><span style="color:var(--muted);">CITY</span> <span>${c.city}</span></div>`:''}
         </div>
         ${c.notes?`<div style="margin-top:10px;font-size:12px;color:var(--muted2);border-left:2px solid var(--yellow);padding-left:10px;">${c.notes}</div>`:''}
       </div>
@@ -1410,10 +1402,10 @@ function openCustDetail(id) {
         <td style="font-size:11px;color:var(--muted2);">${j.type||'—'}</td>
         <td>${statusBadge(j.status)}</td>
         <td style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--yellow);">${fmt(j.contract)}</td>
-        <td style="font-family:'DM Mono',monospace;font-size:11px;">${fmt(s.matCost)}</td>
-        <td style="font-family:'DM Mono',monospace;font-size:11px;">${fmt(s.laborCost)}</td>
+        <td style="font-family:'Inter',sans-serif;font-size:11px;">${fmt(s.matCost)}</td>
+        <td style="font-family:'Inter',sans-serif;font-size:11px;">${fmt(s.laborCost)}</td>
         <td>${marginBar(s.margin)}</td>
-        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted2);">${j.start_date||'—'}</td>
+        <td style="font-family:'Inter',sans-serif;font-size:11px;color:var(--muted2);">${j.start_date||'—'}</td>
         <td><button class="btn-danger" onclick="event.stopPropagation();deleteJob('${j.id}')">✕</button></td>
       </tr>`;
     }).join('');
@@ -1458,7 +1450,7 @@ function renderEstimates() {
       <td style="font-weight:600;">${cust?cust.name:'—'}</td>
       <td>${e.title}</td>
       <td style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--yellow);">${fmt(e.amount)}</td>
-      <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted2);">${e.date_sent||'—'}</td>
+      <td style="font-family:'Inter',sans-serif;font-size:11px;color:var(--muted2);">${e.date_sent||'—'}</td>
       <td>${statusBadge(e.status)}</td>
       <td style="font-size:12px;color:var(--muted2);max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${e.notes||'—'}</td>
       <td><button class="btn-danger" onclick="event.stopPropagation();deleteEstimate('${e.id}')">✕</button></td>
@@ -1489,14 +1481,14 @@ function renderJobs() {
     const cust = DATA.customers.find(c=>c.id===j.customer_id);
     const s = jobStats(j);
     return `<tr onclick="editJob('${j.id}')">
-      <td><div style="font-weight:600;">${j.name}</div><div style="font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;">${cust?cust.name:'No customer'}</div></td>
+      <td><div style="font-weight:600;">${j.name}</div><div style="font-size:10px;color:var(--muted);font-family:'Inter',sans-serif;">${cust?cust.name:'No customer'}</div></td>
       <td style="font-size:11px;color:var(--muted2);">${j.type||'—'}</td>
       <td>${statusBadge(j.status)}</td>
       <td style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--yellow);">${fmt(j.contract)}</td>
-      <td style="font-family:'DM Mono',monospace;font-size:11px;">${fmt(s.matCost)}</td>
-      <td style="font-family:'DM Mono',monospace;font-size:11px;">${fmt(s.laborCost)}</td>
+      <td style="font-family:'Inter',sans-serif;font-size:11px;">${fmt(s.matCost)}</td>
+      <td style="font-family:'Inter',sans-serif;font-size:11px;">${fmt(s.laborCost)}</td>
       <td>${marginBar(s.margin)}</td>
-      <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted2);">${j.start_date||'—'}</td>
+      <td style="font-family:'Inter',sans-serif;font-size:11px;color:var(--muted2);">${j.start_date||'—'}</td>
       <td><button class="btn-danger" onclick="event.stopPropagation();deleteJob('${j.id}')">✕</button></td>
     </tr>`;
   }).join('');
@@ -1518,7 +1510,7 @@ function renderCrew() {
         <div class="avatar">${initials(c.name)}</div>
         <div style="flex:1;">
           <div style="font-weight:600;font-size:13px;">${c.name}</div>
-          <div style="font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;">${c.role} · ${fmt(c.rate)}/hr · ${totalHrs} total hrs</div>
+          <div style="font-size:10px;color:var(--muted);font-family:'Inter',sans-serif;">${c.role} · ${fmt(c.rate)}/hr · ${totalHrs} total hrs</div>
         </div>
         <div style="display:flex;gap:6px;">
           <button class="btn-ghost" style="padding:4px 8px;font-size:10px;" onclick="editCrew('${c.id}')">EDIT</button>
@@ -1537,14 +1529,14 @@ function renderCrew() {
     return `<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid #1a1a1a;font-size:12px;">
       <div>
         <div style="font-weight:600;">${cr?cr.name:'?'}</div>
-        <div style="font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;">${jb?jb.name:'?'} · ${l.log_date||'—'}</div>
+        <div style="font-size:10px;color:var(--muted);font-family:'Inter',sans-serif;">${jb?jb.name:'?'} · ${l.log_date||'—'}</div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--yellow);">${l.hours} hrs</div>
         <button class="btn-danger" onclick="deleteLaborLog('${l.id}')">✕</button>
       </div>
     </div>`;
-  }).join('') : '<div style="color:var(--muted);font-size:11px;font-family:DM Mono,monospace;padding:10px 0;">No logs yet</div>';
+  }).join('') : '<div style="color:var(--muted);font-size:11px;font-family:Inter,sans-serif;padding:10px 0;">No logs yet</div>';
 
   // Materials list
   const matList = document.getElementById('mat-list');
@@ -1554,14 +1546,14 @@ function renderCrew() {
     return `<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:12px;">
       <div>
         <div style="font-weight:600;">${m.description||m.category}</div>
-        <div style="font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;">${jb?jb.name:'?'} · ${m.category} · ${m.mat_date||'—'}</div>
+        <div style="font-size:10px;color:var(--muted);font-family:'Inter',sans-serif;">${jb?jb.name:'?'} · ${m.category} · ${m.mat_date||'—'}</div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--yellow);">${fmt(m.amount)}</div>
         <button class="btn-danger" onclick="deleteMaterial('${m.id}')">✕</button>
       </div>
     </div>`;
-  }).join('') : '<div style="color:var(--muted);font-size:11px;font-family:DM Mono,monospace;padding:10px 0;">No materials logged yet</div>';
+  }).join('') : '<div style="color:var(--muted);font-size:11px;font-family:Inter,sans-serif;padding:10px 0;">No materials logged yet</div>';
 }
 
 // ═══════════════════════════════════════
@@ -1581,8 +1573,8 @@ function renderFleet() {
         <div class="van-id-lbl">${v.van_id}</div>
         <div style="flex:1;">
           <div style="font-weight:600;font-size:13px;">${driver?driver.name:'Unassigned'}</div>
-          <div style="font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;">${v.model||'—'} · ${Number(v.miles||0).toLocaleString()} mi</div>
-          ${last?`<div style="font-size:10px;color:var(--yellow-dim);font-family:'DM Mono',monospace;">LAST: ${last.type} · ${last.log_date}${last.next_due?' · NEXT: '+last.next_due:''}</div>`:''}
+          <div style="font-size:10px;color:var(--muted);font-family:'Inter',sans-serif;">${v.model||'—'} · ${Number(v.miles||0).toLocaleString()} mi</div>
+          ${last?`<div style="font-size:10px;color:var(--yellow-dim);font-family:'Inter',sans-serif;">LAST: ${last.type} · ${last.log_date}${last.next_due?' · NEXT: '+last.next_due:''}</div>`:''}
         </div>
         <div style="display:flex;gap:6px;">
           <button class="btn-ghost" style="padding:4px 8px;font-size:10px;" onclick="editVan('${v.id}')">EDIT</button>
@@ -1602,11 +1594,11 @@ function renderFleet() {
     tbody.innerHTML = DATA.maintLogs.map(m=>{
       const van = DATA.vans.find(v=>v.id===m.van_id);
       return `<tr>
-        <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);">${m.log_date||'—'}</td>
+        <td style="font-family:'Inter',sans-serif;font-size:11px;color:var(--muted);">${m.log_date||'—'}</td>
         <td style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--yellow);">${van?van.van_id:'—'}</td>
         <td style="font-size:12px;">${m.type}</td>
         <td style="font-size:12px;color:var(--muted2);">${m.description||'—'}</td>
-        <td style="font-family:'DM Mono',monospace;font-size:11px;">${m.miles?Number(m.miles).toLocaleString()+' mi':'—'}</td>
+        <td style="font-family:'Inter',sans-serif;font-size:11px;">${m.miles?Number(m.miles).toLocaleString()+' mi':'—'}</td>
         <td style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:var(--green);">${m.cost?fmt(m.cost):'—'}</td>
         <td style="font-size:11px;color:var(--muted2);">${m.next_due||'—'}</td>
         <td><button class="btn-danger" onclick="deleteMaintLog('${m.id}')">✕</button></td>
@@ -1930,11 +1922,11 @@ async function loadJobNotes(jobId) {
       <div style="width:28px;height:28px;background:var(--yellow);color:#000;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:12px;flex-shrink:0;">${name[0]}</div>
       <div style="max-width:80%;">
         <div style="background:${isMe?'var(--panel2)':'var(--black)'};border:1px solid var(--border);padding:8px 12px;font-size:13px;">${n.note}</div>
-        <div style="font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;margin-top:3px;${isMe?'text-align:right':''}">${name} · ${dt}</div>
+        <div style="font-size:10px;color:var(--muted);font-family:'Inter',sans-serif;margin-top:3px;${isMe?'text-align:right':''}">${name} · ${dt}</div>
       </div>
       <button onclick="deleteJobNote('${n.id}')" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:11px;align-self:flex-start;padding:2px;">✕</button>
     </div>`;
-  }).join('') : '<div style="color:var(--muted);font-size:11px;font-family:DM Mono,monospace;padding:8px 0;">No notes yet — add the first one</div>';
+  }).join('') : '<div style="color:var(--muted);font-size:11px;font-family:Inter,sans-serif;padding:8px 0;">No notes yet — add the first one</div>';
   feed.scrollTop = feed.scrollHeight;
 }
 
@@ -1980,10 +1972,10 @@ function renderCustomerGenerators(customerId) {
       <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px;">
         <div>
           <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;">${g.make||''} ${g.model||''} <span style="color:var(--yellow);">${g.kw_rating||''}</span></div>
-          <div style="font-size:11px;color:var(--muted2);font-family:'DM Mono',monospace;margin-top:2px;">
+          <div style="font-size:11px;color:var(--muted2);font-family:'Inter',sans-serif;margin-top:2px;">
             ${g.serial_number?'SN: '+g.serial_number+' · ':''}${g.location||''}
           </div>
-          ${nextDue ? `<div style="font-size:11px;margin-top:6px;font-family:'DM Mono',monospace;color:${isOverdue?'var(--red)':isDueSoon?'var(--orange)':'var(--green)'};">
+          ${nextDue ? `<div style="font-size:11px;margin-top:6px;font-family:'Inter',sans-serif;color:${isOverdue?'var(--red)':isDueSoon?'var(--orange)':'var(--green)'};">
             ${isOverdue?'⚠ SERVICE OVERDUE':'✓ NEXT SERVICE'}: ${nextDue}
           </div>` : ''}
         </div>
@@ -1994,19 +1986,19 @@ function renderCustomerGenerators(customerId) {
         </div>
       </div>
       ${services.length ? `<div style="margin-top:12px;border-top:1px solid var(--border);padding-top:10px;">
-        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:8px;">SERVICE HISTORY</div>
+        <div style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:2px;color:var(--muted);margin-bottom:8px;">SERVICE HISTORY</div>
         ${services.map(s => {
           const tech = DATA.crew.find(c=>c.id===s.technician);
           const checks = [s.chk_oil,s.chk_spark_plugs,s.chk_air_filter,s.chk_fuel_filter,s.chk_battery,s.chk_coolant,s.chk_belt_hose,s.chk_transfer_switch,s.chk_run_test,s.chk_leaks,s.chk_exhaust];
           const completed = checks.filter(Boolean).length;
           return `<div style="display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid #1a1a1a;font-size:12px;">
             <div>
-              <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted2);">${s.service_date}</span>
+              <span style="font-family:'Inter',sans-serif;font-size:11px;color:var(--muted2);">${s.service_date}</span>
               ${tech?` · <span>${tech.name}</span>`:''}
               ${s.notes?` · <span style="color:var(--muted2);">${s.notes.substring(0,40)}${s.notes.length>40?'...':''}</span>`:''}
             </div>
             <div style="display:flex;align-items:center;gap:8px;">
-              <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--green);">${completed}/11 ✓</span>
+              <span style="font-family:'Inter',sans-serif;font-size:10px;color:var(--green);">${completed}/11 ✓</span>
               <button class="btn-ghost" style="padding:3px 7px;font-size:9px;" onclick="openGenServiceModal('${g.id}','${s.id}')">VIEW</button>
               <button class="btn-danger" onclick="deleteGenService('${s.id}')">✕</button>
             </div>
@@ -2233,14 +2225,14 @@ function renderTickets() {
     const priColor = t.priority==='Emergency'?'var(--red)':t.priority==='Urgent'?'var(--orange)':'var(--text)';
     return `<tr onclick="editTicket('${t.id}')">
       <td><div style="font-weight:600;">${t.caller_name||'—'}</div></td>
-      <td style="font-family:'DM Mono',monospace;font-size:11px;">${t.caller_phone||'—'}</td>
+      <td style="font-family:'Inter',sans-serif;font-size:11px;">${t.caller_phone||'—'}</td>
       <td style="font-size:12px;color:var(--muted2);">${t.type||'—'}</td>
-      <td><span style="font-family:'DM Mono',monospace;font-size:10px;color:${priColor};">${t.priority}</span></td>
+      <td><span style="font-family:'Inter',sans-serif;font-size:10px;color:${priColor};">${t.priority}</span></td>
       <td style="font-size:12px;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${t.description||'—'}</td>
       <td style="font-size:12px;color:var(--muted2);">${assignee?assignee.name:'—'}</td>
       <td>${ticketStatusBadge(t.status)}</td>
-      <td style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted2);white-space:nowrap;">${t.received_date||'—'} ${t.received_time?t.received_time.substring(0,5):''}</td>
-      <td style="font-family:'DM Mono',monospace;font-size:11px;color:${t.followup_date&&new Date(t.followup_date)<new Date()?'var(--red)':'var(--muted2)'};">${t.followup_date||'—'}</td>
+      <td style="font-family:'Inter',sans-serif;font-size:11px;color:var(--muted2);white-space:nowrap;">${t.received_date||'—'} ${t.received_time?t.received_time.substring(0,5):''}</td>
+      <td style="font-family:'Inter',sans-serif;font-size:11px;color:${t.followup_date&&new Date(t.followup_date)<new Date()?'var(--red)':'var(--muted2)'};">${t.followup_date||'—'}</td>
       <td><div style="display:flex;gap:6px;">
         <button class="btn-ghost" style="padding:4px 8px;font-size:10px;border-color:var(--green);color:var(--green);" onclick="event.stopPropagation();quickConvertTicket('${t.id}')">⚡ JOB</button>
         <button class="btn-danger" onclick="event.stopPropagation();deleteTicket('${t.id}')">✕</button>
